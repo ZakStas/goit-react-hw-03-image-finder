@@ -49,7 +49,14 @@ class App extends Component {
       prevState.pageNumber !== pageNumber
     ) {
       this.fetchArticles(searchQuery, pageNumber);
-    }
+    }   
+    window.scrollTo({
+    top:
+      document.documentElement.scrollTop +
+      document.documentElement.clientHeight -
+      140,
+    behavior: "smooth",
+    });
   }
 
   fetchArticles = (query, page) => {
@@ -75,10 +82,6 @@ class App extends Component {
     this.setState(prevState => ({
       pageNumber: prevState.pageNumber + 1,
     }));
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: 'smooth',
-    });
   };
 
   handleOpenModal = ({ target }) => {
