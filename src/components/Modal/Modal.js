@@ -40,7 +40,7 @@ class Modal extends Component {
         onClick={this.handleCloseOnClick}
       >
         <div className={styles.Modal}>
-          <img src={src} alt="openImg" width="800" height="600" />
+          <img src={src} alt="openImg" width="1000" height="800" />
         </div>
       </div>
     );

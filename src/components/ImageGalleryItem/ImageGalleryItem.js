@@ -7,7 +7,7 @@ const ImageGalleryItem = ({ item, onClick }) => {
   return (
     <li
       key={key}
-      // role="presentation"
+      role="presentation"
       onClick={onClick}
       className={styles.ImageGalleryItem}
     >

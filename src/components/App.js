@@ -50,12 +50,13 @@ class App extends Component {
     ) {
       this.fetchArticles(searchQuery, pageNumber);
     }   
+  }
+  scrollDown = () => {
     window.scrollTo({
-    top:
-      document.documentElement.scrollTop +
+      top: document.documentElement.scrollTop +
       document.documentElement.clientHeight -
       140,
-    behavior: "smooth",
+      behavior: 'smooth',
     });
   }
 
@@ -68,6 +69,8 @@ class App extends Component {
           items: [...prevState.items, ...mapper(data.hits)],
         }));
       })
+      .then(() => 
+          this.scrollDown())
       .catch(err => {
         throw new Error(err);
       })
@@ -84,8 +87,11 @@ class App extends Component {
     }));
   };
 
+  
+
   handleOpenModal = ({ target }) => {
     this.setState({ isOpenModal: true, openImg: target.dataset.largeimg });
+    
   };
 
   handleCloseModal = () => {
